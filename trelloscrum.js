@@ -19,7 +19,7 @@
 */
 
 //default story point picker sequence
-var _pointSeq = ['?', 0, .5, 1, 2, 3, 5, 8, 13, 21];
+var _pointSeq = ['?', 1, 2, 4, 8, 16, 32];
 //attributes representing points values for card
 var _pointsAttr = ['cpoints', 'points'];
 
@@ -160,6 +160,14 @@ function ListCard(el, identifier){
 		$badge=$('<div class="badge badge-points point-count" style="background-image: url('+iconUrl+')"/>'),
 		to,
 		to2;
+
+    var label_color = $('.card-label', $card).css('backgroundColor');
+    if (label_color) {
+        label_color = label_color.replace('rgb', 'rgba').replace(')', ', 0.3)');
+        $card.css('backgroundColor', label_color);
+
+        //$('.card-operation', $card).css('backgroundColor', label_color);
+    }
 
 	this.refresh=function(){
 		if(busy) return;
