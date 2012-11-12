@@ -171,6 +171,14 @@ function ListCard(el, identifier){
         });
     }
 
+    var label_color = $('.card-label', $card).css('backgroundColor');
+    if (label_color) {
+        label_color = label_color.replace('rgb', 'rgba').replace(')', ', 0.3)');
+        $card.css('backgroundColor', label_color);
+
+        //$('.card-operation', $card).css('backgroundColor', label_color);
+    }
+
 	this.refresh=function(){
 		if(busy) return;
 		busy = true;
