@@ -166,7 +166,9 @@ function ListCard(el, identifier){
         label_color = label_color.replace('rgb', 'rgba').replace(')', ', 0.3)');
         $card.css('backgroundColor', label_color);
 
-        //$('.card-operation', $card).css('backgroundColor', label_color);
+        $card.hover(function(e) {
+            $(this).find('.card-operation').css('backgroundColor', 'transparent');
+        });
     }
 
 	this.refresh=function(){
